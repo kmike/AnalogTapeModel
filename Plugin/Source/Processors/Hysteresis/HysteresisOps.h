@@ -3,7 +3,9 @@
 #include <JuceHeader.h>
 #include <cmath>
 
+#ifndef HYSTERESIS_USE_SIMD
 #define HYSTERESIS_USE_SIMD 1
+#endif
 
 namespace HysteresisOps
 {

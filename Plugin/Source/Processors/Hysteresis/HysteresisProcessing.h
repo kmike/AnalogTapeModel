@@ -148,7 +148,7 @@ private:
 
         for (int ch = 0; ch < 2; ++ch)
         {
-            double input alignas (xsimd::default_arch::alignment())[5] = { H_arr[ch], H_d_arr[ch], H_n1_arr[ch], H_d_n1_arr[ch], M_n1_arr[ch] };
+            double input alignas (16)[5] = { H_arr[ch], H_d_arr[ch], H_n1_arr[ch], H_d_n1_arr[ch], M_n1_arr[ch] };
 
             // scale derivatives
             input[1] *= HysteresisSTN::diffMakeup;
@@ -161,7 +161,7 @@ private:
         return Float::load_aligned (M_out);
 
 #else
-        double input alignas (xsimd::default_arch::alignment())[5] = { H, H_d, H_n1, H_d_n1, M_n1 };
+        double input alignas (16)[5] = { H, H_d, H_n1, H_d_n1, M_n1 };
 
         // scale derivatives
         input[1] *= HysteresisSTN::diffMakeup;
